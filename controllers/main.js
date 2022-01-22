@@ -278,7 +278,7 @@ function suaNhanVien(maNhanVienClick) {
     // nhanVien.chucVu = getInfo('#txtChucVu'); // gán nội dung của mỗi thẻ option vào trong thuộc tính chức vụ
 
     document.querySelector('#txtLuongCoBan').value = nhanVien.luongCoBan;
-    document.querySelector('#txtGiolam').value = nhanVien.soGioLamTrongThang;
+    document.querySelector('#txtGioLam').value = nhanVien.soGioLamTrongThang;
     document.querySelector('#txtChucVu').value = nhanVien.heSoChucVu;
     document.querySelector('#txtMaNV').disabled = true;
 
