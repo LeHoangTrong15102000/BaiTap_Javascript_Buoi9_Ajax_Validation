@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!--Font awesome-->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6 mx-auto">
+          <h1 class="display-4 text-center">Quản Lý Nhân Viên</h1>
+          <form id="formQLSV">
+            <div class="row">
+              <div class="col-6 form-group">
+                <label for="">Mã Nhân Viên : </label>
+                <input type="text" class="form-control" id="txtMaNV" />
+                <span id="spanMaNV" class="text-danger"></span>
+                <p id="error_isNumber_maNV" class="text-danger"></p>
+                <p id="error_minMaxLength_maNV" class="text-danger"></p>
+              </div>
+
+              <div class="col-6 form-group">
+                <label for="">Tên Nhân Viên : </label>
+                <input type="text" class="form-control" id="txtTenNV" />
+                <span id="spanTenNV" class="text-danger"></span>
+                <p id="error_allLetter_tenNhanVien" class="text-danger"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 form-group">
+                <label for="">Chức vụ : </label>
+                <select class="form-control" id="txtChucVu">
+                  <option value="3">Giám đốc</option>
+                  <option value="2">Quản lý</option>
+                  <option value="1">Nhân viên</option>
+                </select>
+                <span id="spanChucVu" class="text-danger"></span>
+                <p id="error_isChucVu_chucVu" class="text-danger"></p>
+              </div>
+              <div class="col-6 form-group">
+                <label for="">Lương cơ bản: </label>
+                <input type="text" class="form-control" id="txtLuongCoBan" />
+                <span id="spanLuongCoBan" class="text-danger"></span>
+                <p id="error_isNumber_luongCB" class="text-danger"></p>
+                <p id="error_minMaxNumber_luongCoBan"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 form-group">
+                <label for="">Số giờ làm trong tháng : </label>
+                <input type="text" class="form-control" id="txtGioLam" />
+                <span id="spanGioLam" class="text-danger"></span>
+                <p id="error_isNumber_gioLam" class="text-danger"></p>
+                <p id="error_minMaxNumber_gioLam"></p>
+              </div>
+            </div>
+
+            <div class="form-group text-center">
+              <button
+                id="btnThemNhanVien"
+                type="button"               
+                class="btn btn-success"
+              >
+                Thêm Sinh Viên
+              </button>
+
+              <button
+                id="btnCapNhatNhanVien"
+                type="button"               
+                class="btn btn-info"
+              >
+                Cập Nhật
+              </button>
+            </div>
+          </form>
+          <div class="row">
+            <div class="col-9 form-group">
+              <input
+                placeholder="Nhập tên nhân viên"
+                type="text"
+                class="form-control"
+                id="txtSearch"
+              />
+            </div>
+            <div class="col-3 form-group">
+              <button id="btnSearchNV" class="btn btn-primary">Search</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-10 mx-auto">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Mã Nhân Viên</th>
+                <th>Tên Nhân Viên</th>
+                <th>Chức vụ</th>      
+                <th>Hệ số CV</th>          
+                <th>Lương cơ bản</th>
+                <th>Số giờ làm trong tháng</th>            
+                <th>Chức năng</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyNhanVien"></tbody>
+            <tfoot id="tfootNhanVien"></tfoot>
+          </table>
+        </div>
+      </div>
+      <script
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"
+      ></script>
+
+      <!-- Models: Chứa kiểu dữ liệu mình tạo ra -->
+      <!-- <script type="text/javascript" src="./models/SinhVien.js"></script>
+      <script type="text/javascript" src="./models/Validation.js"></script> -->
+
+      <!--File xử lý cho giao diện-->
+      <!-- <script src="./js/bai2.js"></script> -->
+      <!-- <script type="text/javascript" src="./js/bai2OOPPrototypes.js"></script>
+    </div> -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+   
+
+    <!-- Models -->
+    <script src="./models/NhanVien.js"></script>
+    <script src="./models/Validation.js"></script>
+
+     <!-- Axios API -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
+      integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+   ></script>
+    <!-- Handle JS -->
+    <script src="./controllers/main.js"></script>
+  </body>
+</html>
